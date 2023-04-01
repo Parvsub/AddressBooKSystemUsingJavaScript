@@ -160,3 +160,14 @@ class ContactDetails{
    let newName = "Praveen";
    let bool = contactDetailarray.find((object) => object.firstName === newName);
    console.log(bool);
+
+   //UC 8 particular city or state
+
+   contactDetailarray.forEach((object) => {
+    if(object.city === 'Bengaluru') 
+    console.log(object.toString());
+   });
+   contactDetailarray.forEach((object)=>{
+    if(object.state === 'Karnataka')
+    console.log(object.toString());
+   });
