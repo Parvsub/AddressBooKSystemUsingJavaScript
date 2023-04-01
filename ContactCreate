@@ -33,7 +33,7 @@ class ContactDetails{
     return this._LastName;
    }
     set LastName(LastName){
-        let LastNameRegex = RegExp('[A-Z]{1}[a-z]{3,}');
+        let LastNameRegex = RegExp('^[A-Z]{1}[a-z]{3,}');
         if(LastNameRegex.test(LastName))
         this._LastName =LastName;
         else throw 'Last Name start with capital letter and have minimum 3 character';
@@ -104,11 +104,17 @@ class ContactDetails{
 
    let contactDetails = new ContactDetails("Praveen","Kumar","Banashankari","Bengaluru","Karnataka",560061,918765456765,'abc@gmail.com');
    console.log(contactDetails.toString());
-   let contactDetailsnew = new ContactDetails("Mohan","Reddy","kathriguppe","Bengaluru south","Karnataka",560085,916785434560,'def@gmail.co.in');
+   let contactDetailsnew = new ContactDetails("Mohan","Reddy","kathriguppe","Bengaluru south","Karnataka",560085,916785434560,'def@gmail.com');
    console.log(contactDetailsnew.toString());
    try{
-    contactDetailsnew.LastName = "reddy";
+    contactDetailsnew.LastName = "mohan";
     console.log(contactDetailsnew.toString());
    }catch(e){
     console.error(e);
    }
+
+   let contactDetailsanother = new ContactDetails("Parvathi","Bodapati","gollapalli","Chittoor","AndhraPradesh",786543,917865456738,'ghj@gmail.com');
+   let contactDetailarray = new Array();
+   contactDetailarray.push(contactDetailsnew);
+   contactDetailarray.push(contactDetailsanother);
+   contactDetailarray.forEach((Details) => console.log(Details.toString()));
