@@ -145,3 +145,7 @@ class ContactDetails{
    }else{
     console.log('Not found');
    }
+   let count = contactDetailarray.reduce(function count(c){
+    return c+1;
+   },0);
+   console.log(count);
