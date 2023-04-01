@@ -98,7 +98,7 @@ class ContactDetails{
 
  
    toString(){
-    return "firstName:"+this.firstName+"\nLastName:"+this.LastName+"\naddress:"+this.address+"\ncity:"+this.city+"\nstate:"+this.state+"\nzip:"+this.zip+"\nphone:"+this.phonenumber+"\nemail:"+this.email;
+    return "\nfirstName:"+this.firstName+"\nLastName:"+this.LastName+"\naddress:"+this.address+"\ncity:"+this.city+"\nstate:"+this.state+"\nzip:"+this.zip+"\nphone:"+this.phonenumber+"\nemail:"+this.email;
    }
 }
 
@@ -113,14 +113,17 @@ class ContactDetails{
     console.error(e);
    }
 
+   //UC3
+
    let contactDetailsanother = new ContactDetails("Parvathi","Bodapati","gollapalli","Chittoor","AndhraPradesh",786543,917865456738,'ghj@gmail.com');
    let contactDetailarray = new Array();
    contactDetailarray.push(contactDetailsnew);
    contactDetailarray.push(contactDetailsanother);
    console.log("new contact:"+contactDetailarray)
-   contactDetailarray.forEach((Details) => console.log(Details.toString()));
+  
 
-   let object = contactDetailarray.find((Details)=>Details._firstName =='Praveen');
+   //UC4
+   let object = contactDetailarray.find((Details)=>Details._firstName =='kumar');
    if(object != undefined){
     contactDetailarray.pop();
     object.setfirstName('Rohith');
@@ -136,7 +139,7 @@ class ContactDetails{
    }else{
     console.log('Not found');
    }
-
+    // UC5
    let objectDelete = contactDetailarray.find((Details)=>Details.firstName ==='Parvathi');
    if(objectDelete != undefined){
     contactDetailarray.pop();
@@ -145,7 +148,15 @@ class ContactDetails{
    }else{
     console.log('Not found');
    }
+
+   //UC6 find count of contacts
    let count = contactDetailarray.reduce(function count(c){
     return c+1;
    },0);
    console.log(count);
+
+   //UC7 check duplicate Entry of same person
+
+   let newName = "Praveen";
+   let bool = contactDetailarray.find((object) => object.firstName === newName);
+   console.log(bool);
