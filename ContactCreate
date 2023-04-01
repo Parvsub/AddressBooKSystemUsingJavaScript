@@ -98,7 +98,7 @@ class ContactDetails{
 
  
    toString(){
-    return "firstName:"+this.firstName+"\nLastName:"+this.LastName+"\naddress:"+this.address+"\ncity:"+this.city+"\nstate:"+this.state+"\nzip:"+this.zip+"\nphone:"+this.phonenumber+"\nemail:"+this.email;
+    return "\nfirstName:"+this.firstName+"\nLastName:"+this.LastName+"\naddress:"+this.address+"\ncity:"+this.city+"\nstate:"+this.state+"\nzip:"+this.zip+"\nphone:"+this.phonenumber+"\nemail:"+this.email;
    }
 }
 
@@ -112,9 +112,28 @@ class ContactDetails{
    }catch(e){
     console.error(e);
    }
-
+ 
    let contactDetailsanother = new ContactDetails("Parvathi","Bodapati","gollapalli","Chittoor","AndhraPradesh",786543,917865456738,'ghj@gmail.com');
    let contactDetailarray = new Array();
+   contactDetailarray.push(contactDetails)
    contactDetailarray.push(contactDetailsnew);
    contactDetailarray.push(contactDetailsanother);
-   contactDetailarray.forEach((Details) => console.log(Details.toString()));
+   console.log("New contact:"+contactDetailarray)
+//    contactDetailarray.forEach((Details) => console.log(Details.toString()));
+
+   let object = contactDetailarray.find((Details)=>Details._firstName =='Thirumala');
+   if(object != undefined){
+    contactDetailarray.pop();
+    object.setfirstName('Rohith');
+    object.setLastName('kumar');
+    object.setAddress('uppal');
+    object.setcity('Hyderabad');
+    object.setstate('Telangana');
+    object.setzip(234323);
+    object.setphonenumber(919876566456);
+    object.setemail('rhg@gmail.com');
+    contactDetailarray.push(object);
+    contactDetailarray.forEach((Details)=> console.log(Details.toString()));
+   }else{
+    console.log('Not found');
+   }
