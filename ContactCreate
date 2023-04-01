@@ -171,3 +171,7 @@ class ContactDetails{
     if(object.state === 'Karnataka')
     console.log(object.toString());
    });
+
+   //UC9 view person by city/state
+   let persons = contactDetailarray.map((object) => `${object.city},${object.state},${object.firstName}`);
+   console.log(persons)
