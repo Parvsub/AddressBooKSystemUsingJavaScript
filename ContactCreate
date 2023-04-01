@@ -157,7 +157,7 @@ class ContactDetails{
 
    //UC7 check duplicate Entry of same person
 
-   let newName = "Praveen";
+   let newName = "Mohan";
    let bool = contactDetailarray.find((object) => object.firstName === newName);
    console.log(bool);
 
@@ -174,4 +174,13 @@ class ContactDetails{
 
    //UC9 view person by city/state
    let persons = contactDetailarray.map((object) => `${object.city},${object.state},${object.firstName}`);
-   console.log(persons)
+   console.log(persons);
+
+   function countbyCity(city){
+    return contactDetailarray.filter(contact => contact.city == city).reduce((count,contact) =>count +=1,0);
+   }
+   function countbystate(state){
+    return contactDetailarray.filter(contact => contact.state == state).reduce((count,contact) =>count +=1,0);
+   }
+   console.log("city"+countbyCity("Bengaluru"));
+   console.log("state:"+countbystate("Karnataka"));
